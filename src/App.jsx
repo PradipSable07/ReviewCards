@@ -1,13 +1,4 @@
 import { useState } from "react";
-<<<<<<< HEAD
-
-function App() {
-	const [count, setCount] = useState(0);
-
-	return (
-		<>
-			<h1 className='mt-3 text-3xl text-center  text-cyan-600'>Review Cards</h1>
-=======
 import people from "./data";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { BiSolidQuoteRight } from "react-icons/bi";
@@ -17,11 +8,18 @@ function App() {
 	const [animation, setAnimation] = useState("");
 	people[index];
 	const nextSlide = () => {
-		setIndex(index === people.length - 1 ? 0 : index + 1);
+		setTimeout(() => {
+			setAnimation("animate-LeftWobble");
+			setIndex(index === people.length - 1 ? 0 : index + 1);
+		});
+		setAnimation("");
 	};
 	const prevSlide = () => {
-		setAnimation("animate-wobble");
-		setIndex(index === 0 ? people.length - 1 : index - 1);
+		setTimeout(() => {
+			setAnimation("animate-RightWobble");
+			setIndex(index === 0 ? people.length - 1 : index - 1);
+		});
+		setAnimation("");
 	};
 
 	const { name, image, job, text } = people[index];
@@ -60,7 +58,6 @@ function App() {
 					</div>
 				</article>
 			</main>
->>>>>>> 757aeaa (done all implentation)
 		</>
 	);
 }
